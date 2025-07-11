@@ -9,7 +9,7 @@
 Change data tables to psobjects and write to file using append
 Add findings for sp and agent passwords
 Add new test for linked servers
-Add new test for dangerious xp
+Add new test for dangerous xp
 #>
 function Invoke-HuntSQLServers
 {
@@ -106,7 +106,7 @@ function Invoke-HuntSQLServers
              [*] -------------------------------------------------------------
              [*] Querying LDAP for SQL Server SPNs (mssql*).
              [*] - 100 SQL Server SPNs were found across 50 computers.
-             [*] - Writing list of SQL Server SPNs to C:\temp\domain.com-SQL-Server-Instance-SPNs.csv
+             [*] - Writing list of SQL Server SPNs to C:\temp\domain.com-SQL-Server-Instances-SPNs.csv
              [*] Performing UDP scanning 50 computers.
              [*] - 50 instances responded.
              [*] -------------------------------------------------------------
@@ -410,8 +410,8 @@ function Invoke-HuntSQLServers
             Write-Output " [*] - $AllInstancesCount SQL Server SPNs were found across $AllComputersCount computers."
 
             # Save list of SQL Server instances to a file
-            write-output " [*] - Writing list of SQL Server SPNs to $OutputDirectory\$TargetDomain-SQL-Server-Instance-SPNs.csv"
-            $AllInstances | Export-Csv -NoTypeInformation "$OutputDirectory\$TargetDomain-SQLServer-Instances-All.csv"
+            write-output " [*] - Writing list of SQL Server SPNs to $OutputDirectory\$TargetDomain-SQL-Server-Instances-SPNs.csv"
+            $AllInstances | Export-Csv -NoTypeInformation "$OutputDirectory\$TargetDomain-SQLServer-Instances-SPNs.csv"
         }else{
             
             # Status user
